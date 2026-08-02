@@ -7,11 +7,14 @@
 # Options (environment variables):
 #   SKILLS_DIR=path   install into a specific directory
 #   SCOPE=project     install into ./.claude/skills instead of ~/.claude/skills
+#   BRANCH=name       install from a branch other than main
+#   REF=<git ref>     install from an exact ref or commit SHA (overrides BRANCH)
 #
 set -euo pipefail
 
 REPO="haruhadj/ai-skills"
 BRANCH="${BRANCH:-main}"
+REF="${REF:-refs/heads/$BRANCH}"
 SKILL_NAME="clean-code"
 
 # --- work out where to install -------------------------------------------------
@@ -29,8 +32,8 @@ TARGET="$TARGET_ROOT/$SKILL_NAME"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-echo "Downloading $SKILL_NAME from $REPO@$BRANCH..."
-curl -fsSL "https://codeload.github.com/$REPO/tar.gz/refs/heads/$BRANCH" \
+echo "Downloading $SKILL_NAME from $REPO@$REF..."
+curl -fsSL "https://codeload.github.com/$REPO/tar.gz/$REF" \
   | tar -xz -C "$TMP" --strip-components=1
 
 SRC="$TMP/plugins/$SKILL_NAME/skills/$SKILL_NAME"

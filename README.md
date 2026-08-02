@@ -125,6 +125,16 @@ The reference files use progressive disclosure: only `SKILL.md` enters context o
 rm -rf ~/.claude/skills/clean-code
 ```
 
+## Adding another skill
+
+1. Create `plugins/<name>/.claude-plugin/plugin.json` and `plugins/<name>/skills/<name>/SKILL.md`.
+2. Append an entry to `plugins[]` in `.claude-plugin/marketplace.json` (same `name` and `version` as the plugin manifest).
+3. Run `python scripts/validate.py`, then push.
+
+CI runs the same validator on every push and pull request, plus `shellcheck` and a
+real `install.sh` run against the pushed commit — so a broken commit can't reach the
+machines that install from `main`.
+
 ## License
 
 MIT

@@ -1,0 +1,35 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate manifests and skill frontmatter
+        run: python scripts/validate.py
+
+      - name: Check install.sh syntax
+        run: bash -n install.sh
+
+      - name: Lint install.sh
+        run: shellcheck install.sh
+
+      - name: Smoke test install.sh against this commit
+        env:
+          SKILLS_DIR: ${{ runner.temp }}/skills
+          REF: ${{ github.sha }}
+        run: |
+          bash install.sh
+          test -f "$SKILLS_DIR/clean-code/SKILL.md"
+          head -1 "$SKILLS_DIR/clean-code/SKILL.md" | grep -qx -- '---'
