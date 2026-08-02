@@ -2,7 +2,7 @@
 #
 # Installs the clean-code skill for Claude Code and other Agent Skills-compatible tools.
 #
-#   curl -fsSL https://raw.githubusercontent.com/haruhadj/clean-code-skill/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/haruhadj/ai-skills/main/install.sh | bash
 #
 # Options (environment variables):
 #   SKILLS_DIR=path   install into a specific directory
@@ -10,7 +10,7 @@
 #
 set -euo pipefail
 
-REPO="haruhadj/clean-code-skill"
+REPO="haruhadj/ai-skills"
 BRANCH="${BRANCH:-main}"
 SKILL_NAME="clean-code"
 

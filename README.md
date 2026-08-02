@@ -15,8 +15,8 @@ Works with Claude Code, Claude Cowork, Cursor, Codex, Google Antigravity, and an
 Installs once per machine and auto-updates. Run inside Claude Code:
 
 ```
-/plugin marketplace add haruhadj/clean-code-skill
-/plugin install clean-code@clean-code-marketplace
+/plugin marketplace add haruhadj/ai-skills
+/plugin install clean-code@haruhadj-skills
 /reload-plugins
 ```
 
@@ -25,34 +25,34 @@ Enable auto-update from `/plugin` → **Marketplaces** → select this marketpla
 To install non-interactively from a shell (useful for scripting a new machine):
 
 ```bash
-claude plugin marketplace add haruhadj/clean-code-skill
-claude plugin install clean-code@clean-code-marketplace
+claude plugin marketplace add haruhadj/ai-skills
+claude plugin install clean-code@haruhadj-skills
 ```
 
 ### Option 2 — one-line curl (any agent)
 
 ```bash
 # user scope: ~/.claude/skills
-curl -fsSL https://raw.githubusercontent.com/haruhadj/clean-code-skill/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/haruhadj/ai-skills/main/install.sh | bash
 
 # project scope: ./.claude/skills
-curl -fsSL https://raw.githubusercontent.com/haruhadj/clean-code-skill/main/install.sh | SCOPE=project bash
+curl -fsSL https://raw.githubusercontent.com/haruhadj/ai-skills/main/install.sh | SCOPE=project bash
 
 # any other tool's skills directory
-curl -fsSL https://raw.githubusercontent.com/haruhadj/clean-code-skill/main/install.sh | SKILLS_DIR=~/.cursor/skills bash
+curl -fsSL https://raw.githubusercontent.com/haruhadj/ai-skills/main/install.sh | SKILLS_DIR=~/.cursor/skills bash
 ```
 
 ### Option 3 — git clone / copy
 
 ```bash
-git clone https://github.com/haruhadj/clean-code-skill.git
-cp -r clean-code-skill/plugins/clean-code/skills/clean-code ~/.claude/skills/
+git clone https://github.com/haruhadj/ai-skills.git
+cp -r ai-skills/plugins/clean-code/skills/clean-code ~/.claude/skills/
 ```
 
 To track updates instead of copying, symlink it:
 
 ```bash
-ln -sfn "$PWD/clean-code-skill/plugins/clean-code/skills/clean-code" ~/.claude/skills/clean-code
+ln -sfn "$PWD/ai-skills/plugins/clean-code/skills/clean-code" ~/.claude/skills/clean-code
 ```
 
 Then `git pull` refreshes the skill everywhere.
@@ -66,14 +66,14 @@ Commit this to your project's `.claude/settings.json` and collaborators are prom
 ```json
 {
   "extraKnownMarketplaces": {
-    "clean-code-marketplace": {
+    "haruhadj-skills": {
       "source": {
         "source": "github",
-        "repo": "haruhadj/clean-code-skill"
+        "repo": "haruhadj/ai-skills"
       }
     }
   },
-  "enabledPlugins": ["clean-code@clean-code-marketplace"]
+  "enabledPlugins": ["clean-code@haruhadj-skills"]
 }
 ```
 
@@ -119,7 +119,7 @@ The reference files use progressive disclosure: only `SKILL.md` enters context o
 
 ```bash
 # plugin
-/plugin uninstall clean-code@clean-code-marketplace
+/plugin uninstall clean-code@haruhadj-skills
 
 # manual install
 rm -rf ~/.claude/skills/clean-code
