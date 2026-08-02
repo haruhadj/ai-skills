@@ -1,0 +1,11 @@
+{
+  "name": "clean-code",
+  "description": "Teaches the agent to write readable, understandable, maintainable code: intent-revealing naming, small single-purpose functions, guard clauses over nesting, minimal comments, pragmatic DRY, SOLID design, code smells, and clean tests.",
+  "version": "1.0.0",
+  "author": {
+    "name": "haruhadj"
+  },
+  "homepage": "https://github.com/haruhadj/clean-code-skill",
+  "license": "MIT",
+  "keywords": ["clean-code", "refactoring", "code-review", "solid", "testing"]
+}

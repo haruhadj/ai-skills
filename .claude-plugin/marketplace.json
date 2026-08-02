@@ -1,0 +1,19 @@
+{
+  "name": "clean-code-marketplace",
+  "owner": {
+    "name": "haruhadj"
+  },
+  "plugins": [
+    {
+      "name": "clean-code",
+      "source": "./plugins/clean-code",
+      "description": "Teaches the agent to write readable, understandable, maintainable code: intent-revealing naming, small single-purpose functions, guard clauses over nesting, minimal comments, pragmatic DRY, SOLID design, code smells, and clean tests.",
+      "version": "1.0.0",
+      "author": {
+        "name": "haruhadj"
+      },
+      "category": "code-quality",
+      "tags": ["clean-code", "refactoring", "code-review", "solid", "testing"]
+    }
+  ]
+}
