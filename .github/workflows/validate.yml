@@ -31,5 +31,19 @@ jobs:
           REF: ${{ github.sha }}
         run: |
           bash install.sh
+          # Every skill in the repo must land, with valid frontmatter.
+          for skill_md in plugins/*/skills/*/SKILL.md; do
+            skill="$(basename "$(dirname "$skill_md")")"
+            echo "checking $skill"
+            test -f "$SKILLS_DIR/$skill/SKILL.md"
+            head -1 "$SKILLS_DIR/$skill/SKILL.md" | grep -qx -- '---'
+          done
+
+      - name: Smoke test selective install
+        env:
+          SKILLS_DIR: ${{ runner.temp }}/skills-selective
+          REF: ${{ github.sha }}
+        run: |
+          bash install.sh clean-code
           test -f "$SKILLS_DIR/clean-code/SKILL.md"
-          head -1 "$SKILLS_DIR/clean-code/SKILL.md" | grep -qx -- '---'
+          test ! -d "$SKILLS_DIR/project-blueprint"
