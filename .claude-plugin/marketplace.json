@@ -14,6 +14,24 @@
       },
       "category": "code-quality",
       "tags": ["clean-code", "refactoring", "code-review", "solid", "testing"]
+    },
+    {
+      "name": "project-blueprint",
+      "source": "./plugins/project-blueprint",
+      "description": "Plans a software project end to end before any code is written, then captures the result as durable context files (AGENTS.md + context/) that keep agents accurate across sessions: a decision log that keeps its reasoning, phased specs with mechanically checkable exit criteria, an explicit scope boundary, UI tokens/rules/registry, and verification rules that stop invented versions and APIs.",
+      "version": "1.0.0",
+      "author": {
+        "name": "haruhadj"
+      },
+      "category": "planning",
+      "tags": [
+        "planning",
+        "architecture",
+        "context-engineering",
+        "agents-md",
+        "scope-management",
+        "anti-hallucination"
+      ]
     }
   ]
 }
