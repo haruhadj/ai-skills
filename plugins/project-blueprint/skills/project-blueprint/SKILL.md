@@ -127,11 +127,15 @@ Audit for this before finishing. If two files describe the same thing, one of th
 - **Session workflow** — what to read at the start, what to update at the end.
 - **The invariants** — restated where they will actually be seen.
 
-Two habits make the difference between context files that stay true and context files that become archaeology:
+Three habits make the difference between context files that stay true and context files that become archaeology:
 
 **Update the tracker and registry at the end of every session.** Not "when convenient." A registry that is a week stale is worse than none, because it is trusted and wrong.
 
 **Never build ahead of the current phase.** If a task is not in this phase's spec, raise it rather than absorbing it. "While I'm in here" is how scope dies.
+
+**Stop after one failed correction.** If the same failure survives one corrective attempt, the model of the problem is wrong — and a third attempt edits code based on that wrong model, so the codebase gets worse while the symptom stays. Stop, report what was tried and what was actually observed, and re-read the relevant context file before touching anything else. Put this rule in `AGENTS.md`; it is the one that fires when a session is going badly, which is exactly when nobody is reading the rest.
+
+`references/context-files.md` ends with a full worked `AGENTS.md` carrying all of these.
 
 ---
 

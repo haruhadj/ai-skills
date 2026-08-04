@@ -50,6 +50,8 @@ Keep it under ~150 lines. It competes for attention with the actual task; a long
 
 If the file has managed blocks (`<!-- BEGIN:… -->`), preserve them verbatim — tooling rewrites them.
 
+A full worked example is at the end of this file.
+
 ## project-overview.md
 
 What this is, the problem it solves, who it's for, what success means, deliberate non-goals.
@@ -158,3 +160,69 @@ The most-updated file in the set. If it's stale, the whole set is suspect.
 Describe **what is actually there**, not what should be. Aspirations get marked as aspirations, or the files become fiction and stop being trusted.
 
 Start with `functionality.md`, `architecture.md`, and `progress-tracker.md` — the drift brake, the unwritten conventions, and the record. Add the rest as they earn their place.
+
+---
+
+## Worked example — AGENTS.md
+
+A complete entry point for a project with UI. Adapt the rules and invariants to the project; keep the shape.
+
+````md
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes. Read the relevant guide in
+`node_modules/next/dist/docs/` before writing any code.
+<!-- END:nextjs-agent-rules -->
+
+## Read before anything else
+
+Read in this exact order before any implementation:
+
+1. `context/project-overview.md` — what this is, who for, non-goals
+2. `context/functionality.md` — in-scope vs out-of-scope, with reasons
+3. `context/architecture.md` — layers, dependency direction
+4. `context/tech-stack.md` — libraries, versions, per-library rules
+5. `context/code-standards.md` — project-specific language rules
+6. `context/ui-tokens.md` — the only source of visual values
+7. `context/ui-rules.md` — component behavior
+8. `context/ui-registry.md` — what already exists
+9. `context/planning/PHASE-<current>.md` — this phase's scope and exit criteria
+10. `context/progress-tracker.md` — where things stand
+
+## Rules that never change
+
+**Design** — never a hex value or raw color utility. Semantic tokens only.
+A rebrand must touch zero components.
+
+**Process** — nothing gets built that isn't in the current phase spec.
+"While I'm in here" is scope creep. Raise it, don't absorb it.
+
+**Verification** — never state a version or API from memory. Check the
+installed package; it outranks the docs site.
+
+**Circuit breaker** — if the same failure survives one corrective attempt,
+stop. Report what you tried and what you observed. Do not attempt a third fix.
+
+## Session workflow
+
+**Start:** read the files above in order.
+**Finish:** update `progress-tracker.md` (session log, decisions made) and
+`ui-registry.md` (any new component) — in the same commit as the code.
+An unregistered component gets rebuilt within a week.
+
+## Invariants
+
+Violating these is a bug regardless of what you were working on:
+
+- Money is integer minor units + currency
+- The ORM never escapes the service layer
+- Totals are always computed server-side
+````
+
+Notes on the example:
+
+- The `<!-- BEGIN: -->` block is tool-managed. Preserve it verbatim; never hand-edit inside it.
+- The read order names the files this skill produces. If you rename a file, rename it here too — a read order pointing at a file that doesn't exist teaches the agent the list is unreliable.
+- Rules are grouped and absolute. "Prefer semantic tokens" gets ignored; "never a hex value" doesn't.
+- Do not list slash commands or skills unless they are actually installed. A read order that invokes a command that doesn't exist is a hallucination shipped into the project's most-read file.
