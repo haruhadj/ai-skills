@@ -78,6 +78,20 @@ The reason is what stops it being re-proposed every session. A bare "out of scop
 
 Add the rules too: nothing gets built that isn't listed; "while I'm in here" is scope creep; extension points are not features.
 
+### Legal/policy pages
+
+For any public-facing website or app, check off the standard policy pages during scoping rather than discovering the gap at launch:
+
+| Page | Needed when |
+|---|---|
+| Terms of Service | Any account, paid product, or user-generated content |
+| Privacy Policy | Any data collection — analytics and cookies count |
+| Disclaimer | Advice-adjacent content (health, legal, financial, affiliate links) |
+| Cookie Policy / consent banner | Cookies or trackers, and the audience includes EU/UK/CA users |
+| Refund/Cancellation Policy | Paid product or subscription |
+
+List each as in-scope or out-of-scope with a reason, same as any other item — "no accounts, no data collection" is a valid reason to skip Privacy Policy, but it should be a stated decision, not a silent gap. These are content deliverables, not features to build: note who owns the copy (the user, not the agent — this is not legal advice) and route them into `user-flow.md` as real routes (`/terms`, `/privacy`).
+
 ## user-flow.md
 
 Every screen and how users move between them. A route table with phase tags, plus ASCII diagrams of the flows that matter.

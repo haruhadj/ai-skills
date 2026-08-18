@@ -70,6 +70,7 @@ Adapt; these are prompts, not a script.
 6. **Auth model** — none, single-user, accounts, roles, SSO?
 7. **Deployment target** — a specific cloud, self-hosted, air-gapped? *Rules out managed-service dependencies.*
 8. **Locale and currency reach** — cheap to design in, brutal to retrofit.
+9. **Policy pages** — ToS, Privacy, Disclaimer, Cookie consent: which apply, and who owns the copy? *A public site with accounts or data collection needs these; skipping is a decision, not a default.*
 
 ### Anything commercial
 
