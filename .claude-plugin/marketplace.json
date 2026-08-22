@@ -13,7 +13,30 @@
         "name": "haruhadj"
       },
       "category": "code-quality",
-      "tags": ["clean-code", "refactoring", "code-review", "solid", "testing"]
+      "tags": [
+        "clean-code",
+        "refactoring",
+        "code-review",
+        "solid",
+        "testing"
+      ]
+    },
+    {
+      "name": "git-haiku",
+      "source": "./plugins/git-haiku",
+      "description": "Lightweight git automation on Haiku: inspect status and diff, draft a concise Conventional Commits message, commit, and push to the current remote branch \u2014 no unnecessary commentary.",
+      "version": "1.0.0",
+      "author": {
+        "name": "haruhadj"
+      },
+      "category": "automation",
+      "tags": [
+        "git",
+        "commit",
+        "automation",
+        "haiku",
+        "conventional-commits"
+      ]
     },
     {
       "name": "project-blueprint",

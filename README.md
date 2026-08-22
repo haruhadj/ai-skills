@@ -9,9 +9,10 @@ Works with Claude Code, Claude Cowork, Cursor, Codex, Google Antigravity, and an
 | Skill | What it does |
 |---|---|
 | **[clean-code](plugins/clean-code/skills/clean-code/SKILL.md)** | Write code that stays readable, understandable, and maintainable — intent-revealing naming, small single-purpose functions, guard clauses over deep nesting, comments that explain *why*, pragmatic DRY, SOLID, a code-smell catalog, and clean tests. Emphasizes **not over-engineering**, the most common failure mode of AI-generated code. |
+| **[git-haiku](plugins/git-haiku/skills/git-haiku/SKILL.md)** | Commit and push without ceremony — read `git status`/`git diff`, write a concise Conventional Commits message, commit on a topic branch, and push. Ships with a Haiku-pinned subagent so routine commits don't burn a larger model. |
 | **[project-blueprint](plugins/project-blueprint/skills/project-blueprint/SKILL.md)** | Plan a project end to end before writing code, then capture it as durable context files (`AGENTS.md` + `context/`) that keep agents accurate across sessions — a decision log that keeps its reasoning, phased specs with mechanical exit criteria, an explicit scope boundary, and verification rules that stop invented versions and APIs. |
 
-The two are designed to work together: `project-blueprint` decides *what* to build and writes down the rules; `clean-code` governs *how* the code inside it gets written.
+`project-blueprint` and `clean-code` are designed to work together: `project-blueprint` decides *what* to build and writes down the rules; `clean-code` governs *how* the code inside it gets written. `git-haiku` is independent — it takes the finished change and gets it committed.
 
 ---
 
@@ -130,6 +131,10 @@ plugins/
 │       ├── solid.md              # SOLID, when designing classes/modules
 │       ├── code-smells.md        # smell → refactoring catalog, when reviewing
 │       └── testing.md            # clean tests
+│
+├── git-haiku/
+│   ├── skills/git-haiku/SKILL.md # inspect, message, commit, push
+│   └── agents/git-haiku.md       # same job as a Haiku-pinned subagent
 │
 └── project-blueprint/skills/project-blueprint/
     ├── SKILL.md                  # the four stages, loaded when triggered

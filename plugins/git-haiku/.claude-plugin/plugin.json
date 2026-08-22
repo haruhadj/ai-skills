@@ -1,0 +1,11 @@
+{
+  "name": "git-haiku",
+  "description": "Lightweight git automation on Haiku: inspect status and diff, draft a concise conventional commit message, commit, and push to the current remote branch — no unnecessary commentary.",
+  "version": "1.0.0",
+  "author": {
+    "name": "haruhadj"
+  },
+  "homepage": "https://github.com/haruhadj/ai-skills",
+  "license": "MIT",
+  "keywords": ["git", "commit", "automation", "haiku", "conventional-commits"]
+}
