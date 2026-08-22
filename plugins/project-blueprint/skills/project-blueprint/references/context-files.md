@@ -90,7 +90,7 @@ For any public-facing website or app, check off the standard policy pages during
 | Cookie Policy / consent banner | Cookies or trackers, and the audience includes EU/UK/CA users |
 | Refund/Cancellation Policy | Paid product or subscription |
 
-List each as in-scope or out-of-scope with a reason, same as any other item — "no accounts, no data collection" is a valid reason to skip Privacy Policy, but it should be a stated decision, not a silent gap. These are content deliverables, not features to build: note who owns the copy (the user, not the agent — this is not legal advice) and route them into `user-flow.md` as real routes (`/terms`, `/privacy`).
+List each as in-scope or out-of-scope with a reason, same as any other item — "no accounts, no data collection" is a valid reason to skip Privacy Policy, but it should be a stated decision, not a silent gap. These are content deliverables, not features to build: note who owns the copy (the user, not the agent — this is not legal advice) and route them into `user-flow.md` as real routes (`/terms`, `/privacy`). For web apps, link every one of them from the site footer — a global footer present on every page is the expected place users look for them, and a policy that exists only as an unlinked route is the same as a missing one.
 
 ## user-flow.md
 
