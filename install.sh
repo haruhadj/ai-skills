@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# Installs skills from haruhadj/ai-skills for Claude Code and other
-# Agent Skills-compatible tools. Installs every skill by default.
+# Installs skills from haruhadj/ai-skills into a local Agent Skills directory.
+# Installs every skill by default.
 #
 #   curl -fsSL https://raw.githubusercontent.com/haruhadj/ai-skills/main/install.sh | bash
 #
@@ -11,7 +11,7 @@
 #
 # Options (environment variables):
 #   SKILLS_DIR=path   install into a specific directory
-#   SCOPE=project     install into ./.claude/skills instead of ~/.claude/skills
+#   SCOPE=project     install into ./.agents/skills instead of ~/.agents/skills
 #   BRANCH=name       install from a branch other than main
 #   REF=<git ref>     install from an exact ref or commit SHA (overrides BRANCH)
 #   SKILLS="a b"      install only these skills (same as passing arguments)
@@ -35,9 +35,9 @@ fi
 if [ -n "${SKILLS_DIR:-}" ]; then
   TARGET_ROOT="$SKILLS_DIR"
 elif [ "${SCOPE:-user}" = "project" ]; then
-  TARGET_ROOT=".claude/skills"
+  TARGET_ROOT=".agents/skills"
 else
-  TARGET_ROOT="$HOME/.claude/skills"
+  TARGET_ROOT="$HOME/.agents/skills"
 fi
 
 # --- fetch ---------------------------------------------------------------------
